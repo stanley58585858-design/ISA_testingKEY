@@ -1,0 +1,16 @@
+{
+  "name": "SLIF/Applicable 速限比對 (Speed Limit Compare PWA)",
+  "terminals": [
+    {
+      "name": "web-server",
+      "command": "python3 -m http.server 8000 --bind 0.0.0.0",
+      "description": "Static HTTP server for the SLIF/Applicable PWA. Open http://localhost:8000/ to load index.html (the app entry point)."
+    }
+  ],
+  "ports": [
+    {
+      "name": "web server",
+      "port": 8000
+    }
+  ]
+}
