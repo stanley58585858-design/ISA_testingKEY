@@ -1,7 +1,13 @@
 {
   "name": "SLIF/Applicable speed-limit comparison (static web app)",
   "install": "echo 'No dependencies to install; the app is static HTML/CSS/JS and Leaflet is loaded from a CDN.'",
-  "start": "cd /workspace && if ! curl -sf -o /dev/null http://localhost:8000/index.html 2>/dev/null; then nohup python3 -m http.server 8000 >/tmp/static-server.log 2>&1 & fi; for i in $(seq 1 10); do curl -sf -o /dev/null http://localhost:8000/index.html && break; sleep 0.5; done; curl -sf -o /dev/null -w 'static server on :8000 -> HTTP %{http_code}\\n' http://localhost:8000/index.html",
+  "terminals": [
+    {
+      "name": "static-server",
+      "command": "cd /workspace && python3 -m http.server 8000",
+      "description": "Serves the static web app at http://localhost:8000 (open /index.html)."
+    }
+  ],
   "ports": [
     {
       "name": "web",
